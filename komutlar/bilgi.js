@@ -1,32 +1,41 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
-const ayarlar = require('../ayarlar.json');
 
-exports.run = (client, message) => {
-  if (message.channel.type !== 'dm') {
-    const ozelmesajkontrol = new Discord.RichEmbed()
-    .setColor(0x00AE86)
-    .setTimestamp()
-    .setAuthor(message.author.username, message.author.avatarURL)
-    .setDescription('Özel mesajlarını kontrol et. :postbox:');
-    message.channel.sendEmbed(ozelmesajkontrol) }
-	const pingozel = new Discord.RichEmbed()
-    .setColor(0x00AE86)
-    .setTimestamp()
-    .setAuthor(message.author.username, message.author.avatarURL)
-    .setDescription('Bot sürümü: v' + ayarlar.surum + ' Yapımcı: Serhan (Black Monday) **Sohbet ve Oyun**\n\n_**BOTU EKLEMEK İÇİN LİNK:**_\n\nhttps://discordapp.com/oauth2/authorize?client_id=288310817810546699&scope=bot&permissions=401812495 \n\n_**Linkler:**_\n\n**Sohbet ve Oyun** sunucusunun davet linki: https://discord.gg/GEeGjnH \nBotun davet linki: https://discordapp.com/oauth2/authorize?client_id=288310817810546699&scope=bot&permissions=401812495 \n\n**:copyright: 2017 Sohbet ve Oyun**');
-    return message.author.sendEmbed(pingozel)
+
+exports.run = function(client, message, args) {
+
+    var öneri = args.slice(0).join(' ');
+    var guildID = "500778635658133516"; //Buraya mesajın hangi sunucuya gelmesini istiyorsan oraya sunucunun ID sini yaz
+    var channelID = "505682797592051722"; //Buraya mesajın hangi kanala gelmesini istiyorsan oraya kanalın ID sini yaz
+    
+    if (!öneri){
+        return message.reply("Bir mesaj belirtin! Doğru kullanım: **+bildiri <mesaj>**"); 
+    } else {
+        
+        var embed = new Discord.RichEmbed()
+            .setTimestamp()
+            .addField("Eylem:", "Bildiri")
+            .addField("Kullanıcı:", message.author.tag)
+            .addField("ID", message.author.id)
+            .addField("Öneri/Hata", öneri)
+        
+        client.guilds.get(guildID).channels.get(channelID).send(embed);
+        message.channel.send("Bildiriniz alınmıştır! Teşekkür ederiz.");
+    };
+
+
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['bot bilgi', 'botbilgi', 'bb', 'botb', 'bbot', 'hakkında', 'bot hakkında', 'bothakkında'],
-  permLevel: 0
+  aliases: ["öner", "öneri",], 
+  permLevel: 0 
 };
 
 exports.help = {
-  name: 'bilgi',
-  description: 'Bot ile ilgili bilgi verir.',
-  usage: 'bilgi'
+  name: 'bildiri', 
+  description: "Bot hakkındaki önerilerinizi ya da bulduğunuz hataları bot sahibine ulaştırır.", 
+  usage: 'bildiri <mesaj>' 
 };
+
+//Saygılarımla (DJ Botçu)
