@@ -17,9 +17,9 @@ module.exports = client => {
         "❯  +yardım",
         "❯ +çay",
         "❯ Yeni komutlar gelicek ",
-        "❯ 7/24 AKTİF",
+        "❯ 🔥7/24 AKTİF🔥",
       "❯ +davet",
-        "❯ Yenilikler Yakında... +sniper"
+        "❯ `🌍${client.guilds.size} Sunucuda hizmet!`,"
     ]
 
     setInterval(function() {
