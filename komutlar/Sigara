@@ -4,31 +4,31 @@ exports.run = (client, message, args) => {
             message.react('ğŸš¬');
         }, 1000);
           setTimeout(() => {
-            message.react('â˜');
+            message.react('🚬˜');
         }, 1500);
         setTimeout(() => {
-            msg.edit('ğŸš¬');
+            msg.edit('🔥¬');
         }, 1800);
         setTimeout(() => {
-            msg.edit('ğŸš¬ â˜ ');
+            msg.edit('¬ 🔥˜ ');
         }, 2300);
         setTimeout(() => {
-            msg.edit('ğŸš¬ â˜â˜ ');
+            msg.edit('🚬¬ 🔥˜🔥˜ ');
         }, 2800);
         setTimeout(() => {
-            msg.edit('ğŸš¬ â˜â˜â˜ ');
+            msg.edit('🚬¬ 🔥˜🔥˜🔥˜ ');
         }, 3300);
         setTimeout(() => {
-            msg.edit('ğŸš¬ â˜â˜');
+            msg.edit('🚬¬ 🔥˜🔥˜');
         }, 3800);
         setTimeout(() => {
-            msg.edit('ğŸš¬ â˜');
+            msg.edit('🚬¬ 🔥˜');
         }, 4300);
         setTimeout(() => {
-            msg.edit('ğŸš¬ ');
+            msg.edit('🚬¬ ');
         }, 4800);
     setTimeout(() => {
-            msg.edit('**Sigara bitti** Not: Sigara saÄŸlÄ±ÄŸa zararlÄ±dÄ±r, bu yÃ¼zden Bot sigara iÃ§memenizi Ã¶nerir!');
+            msg.edit('**Sigara bitti** Not: Sigara sağlığa zararlıdı Lütfen sigara içmeyiniz!');
         }, 5300);
     });
 };
