@@ -9,13 +9,13 @@ module.exports = client => {
 
   client.user.setStatus("dnd");
    var oyun = [
-        " ❯ +yardım | +davet",
-     " ❯ +sniper",
-     "❯ +öneri",
-     "❯ +kullanıcıbilgim ",
+        " ❯ *yardım | *davet",
+     " ❯ *sniper",
+     "❯ *öneri",
+     "❯ *kullanıcıbilgim ",
      `❯ 👥${client.users.size} Kullanıcı!`,
-        "❯  +yardım",
-        "❯ +çay",
+        "❯  *yardım",
+        "❯ *çay",
         "❯ Yeni komutlar gelicek ",
         "❯ 🔥7/24 AKTİF🔥",
       "❯ +davet",
