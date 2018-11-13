@@ -28,7 +28,7 @@ exports.run = (client, message, args) => {
             msg.edit('ğŸš¬ ');
         }, 4800);
     setTimeout(() => {
-            msg.edit('**Sigara bitti** Not: Sigara saÄŸlÄ±ÄŸa zararlÄ±dÄ±r, bu yÃ¼zden DesertHawk sigara iÃ§memenizi Ã¶nerir!');
+            msg.edit('**Sigara bitti** Not: Sigara saÄŸlÄ±ÄŸa zararlÄ±dÄ±r, bu yÃ¼zden Bot sigara iÃ§memenizi Ã¶nerir!');
         }, 5300);
     });
 };
