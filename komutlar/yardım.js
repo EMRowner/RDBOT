@@ -45,4 +45,6 @@ message.channel.send(embed).then(msg => {
  
 module.exports.help = {
   name: "yardım"
+ description: "Yardım"
+ usage:"yardım
 }
