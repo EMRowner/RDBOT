@@ -1,5 +1,9 @@
-module.exports = member => {
-    let username = member.user.username;
-    member.send('Hoş geldin **' + username + '**!');
-    member.guild.defaultChannel.send('hg '+username+'');
-};
+client.on('guildMemberAdd', member => {
+  db.fetch(`autoRole_${member.guild.id)`).then(i => {
+ try {
+ member.addRole(member.guild.roles.find("name", i))
+} catch (e) {
+ console.log('Rol veremedim...')
+}
+})
+});
