@@ -6,7 +6,7 @@ exports.run = async (client,message,args) => {
   let role = message.guild.roles.find("name", `${amount}`)
   var erreur = new Discord.RichEmbed()
   .setColor(10038562)
-  .setDescription("❌ Lütfen Bir Rol İsmi Yazın `Örnek: /rolinfo Üye`");
+  .setDescription("❌ Lütfen Bir Rol İsmi Yazın `Örnek: id+rolbilgi Üye`");
   if(!role) return message.channel.send(erreur);
   var moment = require("moment");
   moment.locale("tr");
