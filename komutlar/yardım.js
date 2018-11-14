@@ -43,7 +43,8 @@ message.channel.send(embed).then(msg => {
   })
 }
  
-  exports.conf = {
+}
+ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
@@ -55,4 +56,3 @@ exports.help = {
   description: '',
   usage: ''
 };
-}
