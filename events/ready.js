@@ -18,7 +18,7 @@ module.exports = client => {
         "❯ id+çay",
         "❯ Yeni komutlar gelicek ",
         "❯ 🔥7/24 AKTİF🔥",
-      "❯ id+davet",
+      "❯ id+wasted",
         `❯ 🌍${client.guilds.size} Sunucuda hizmet!`,
     ]
 
