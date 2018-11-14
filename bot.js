@@ -84,6 +84,12 @@ client.on('message', msg => {
   }
 });
 
+client.on('message', message => {
+if (message.content === `<@${client.user.id}>`) {
+ message.reply('Prefixim: id+')
+}
+});
+
 client.elevation = message => {
   if(!message.guild) {
 	return; }
