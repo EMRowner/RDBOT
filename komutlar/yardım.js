@@ -44,7 +44,7 @@ message.channel.send(embed).then(msg => {
 }
  
 }
- exports.conf = {
+exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
@@ -52,7 +52,7 @@ message.channel.send(embed).then(msg => {
 };
 
 exports.help = {
-  name: 'yardım',
-  description: '',
-  usage: ''
+  name: 'balıktut',
+  description: 'Yardım',
+  usage: 'yardım'
 };
