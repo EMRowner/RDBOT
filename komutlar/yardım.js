@@ -43,8 +43,16 @@ message.channel.send(embed).then(msg => {
   })
 }
  
+  exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: 0
+};
+
 exports.help = {
   name: 'yardım',
-  description: 'Tüm komutları gösterir.',
-  usage: 'yardım [komut]'
+  description: '',
+  usage: ''
 };
+}
