@@ -43,8 +43,8 @@ message.channel.send(embed).then(msg => {
   })
 }
  
-module.exports.help = {
-  name: "yardım"
- description: "Yardım"
- usage:"yardım
-}
+exports.help = {
+  name: 'yardım',
+  description: 'Tüm komutları gösterir.',
+  usage: 'yardım [komut]'
+};
