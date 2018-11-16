@@ -84,7 +84,6 @@ client.on('message', msg => {
   }
 });
 const Jimp = require('jimp');
-const fs = require('fs');
  
 client.on("guildMemberAdd", async member => {
   const channel = member.guild.channels.find('name', 'log');//log ismini ayarlıyacaksınız log adında kanal açın
