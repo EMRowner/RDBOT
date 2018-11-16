@@ -86,7 +86,7 @@ client.on('message', msg => {
 const Jimp = require('jimp');
  
 client.on("guildMemberAdd", async member => {
-  const channel = member.guild.channels.find('name', 'log');//log ismini ayarlıyacaksınız log adında kanal açın
+  const channel = member.guild.channels.find('name', 'gelen-giden');//log ismini ayarlıyacaksınız log adında kanal açın
   if (!channel) return;
         let username = member.user.username;
         if (channel === undefined || channel === null) return;
