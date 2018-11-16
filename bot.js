@@ -84,7 +84,6 @@ client.on('message', msg => {
   }
 });
 const { Client, Util } = require('discord.js');
-const Discord = require('discord.js')
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./müzik');
 const YouTube = require('simple-youtube-api');
 const youtube = new YouTube(GOOGLE_API_KEY);
