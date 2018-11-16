@@ -1,49 +1,40 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
- 
-module.exports.run = async (bot, message, args) => {
-  let pages = ['[❯ Tüm Komutlar]\n\n[kn!yardım](https://discord.gg/CsHSKFR)  •  Botun tüm komutlarını gösterir.\n[kn!istatistik](https://discord.gg/CsHSKFR)  • Botun istatistiklerini gönderir.\n[kn!avatar](https://discord.gg/CsHSKFR) •  Kendi avatarınızı veya etiketlediğiniz kişinin avatarını verir.\n[kn!sunucubilgi](https://discord.gg/CsHSKFR)  •  Sunucu hakkında bilgi verir.\n[kn!temizle](https://discord.gg/CsHSKFR) • Belirttiğiniz kadar mesajı siler.\n[kn!bilgi](https://discord.gg/CsHSKFR) • Bot hakkında bilgiler verir. \n[kn!canlıdestek](https://discord.gg/CsHSKFR) • Botun Sahibiyle Canlı Olarak Konuşursunuz.',  '[kn!cowsay](https://discord.gg/CsHSKFR) • Bot Yazdıgınız Şeyi Cowsayla Yazar'];
-  let page = 1; // Sayfa 1
- 
- 
-  const embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-  .setAuthor(message.guild.name,bot.user.avatarURL)
-  .setFooter(`© 2018 Kronos | Sayfa ${page} / ${pages.length}`,bot.user.avatarURL)
-  .setThumbnail(bot.user.avatarURL)
-  .setDescription(pages[page-1])
-  .setAuthor(message.guild.name,bot.user.avatarURL)
-message.channel.send(embed).then(msg => {
- 
-    msg.react('⬅').then(r => {
-      msg.react('➡')
- 
-      //Filter
-      const backwardsFilter = (reaction, user) => reaction.emoji.name === '⬅' && user.id === message.author.id;
-      const forwardsFilter = (reaction, user) => reaction.emoji.name === '➡' && user.id === message.author.id;
- 
-      const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 });
-      const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 });
- 
-      forwards.on('collect', r => {
-        if(page === pages.length) return;
-        page++;
-        embed.setDescription(pages[page-1]);
-        embed.setFooter(`© 2018 Kronos | Sayfa ${page} / ${pages.length}`,bot.user.avatarURL)
-        msg.edit(embed)
-      })
-      backwards.on('collect', r => {
-        if(page === 1) return;
-        page--;
-        embed.setDescription(pages[page-1]);
-        embed.setFooter(`© 2018 Kronos | Sayfa ${page} / ${pages.length}`,bot.user.avatarURL)
-        msg.edit(embed)
-      })
- 
-    })
-  })
-}
- 
-module.exports.help = {
-  name: "yardım"
-}
+
+var prefix = ayarlar.prefix;
+
+exports.run = (client, message, params) => {
+
+  const embedyardim = new Discord.RichEmbed()
+  .setAuthor(client.user.username, client.user.avatarURL)
+  .setThumbnail("https://cdn.discordapp.com/attachments/506469375402967060/509039196376399872/RTD_ArkaplanS.PNG")
+  .setDescription(`[Bot Davet Linki](  https://discordapp.com/oauth2/authorize?client_id=506420022328164352&scope=bot&permissions=2146958847  ) | ` + `[Destek Sunucusu](  https://discord.gg/dM5Fu4h  ) \n\n**Ping:** ${Math.round(client.ping)}ms!`)
+  .setColor("#FFB900")
+  .addField("**RTD BOT • Komutlar**", `▫️ **|  +eğlence:** Eğlence komutlarını gösterir. \n▫️ **|   +moderasyon:** Moderasyon komutlarını gösterir. \n▫️ **|  +anakomut:** Temel komutları gösterir. \n▫️ **|  +resimefekt:** Resim Efektleri komutlarını gösterir.`)
+  .setFooter(`${message.author.username} tarafından istendi.`, message.author.avatarURL)
+
+  if (!params[0]) {
+    const commandNames = Array.from(client.commands.keys());
+    const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
+    message.channel.send(embedyardim);
+  } else {
+    let command = params[0];
+    if (client.commands.has(command)) {
+      command = client.commands.get(command);
+      message.author.send('asciidoc', `= ${command.help.name} = \n${command.help.description}\nDoğru kullanım: ` + prefix + `${command.help.usage}`);
+    }
+  }
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ['h', 'halp', 'help', 'y'],
+  permLevel: 0
+};
+
+exports.help = {
+  name: 'yardım',
+  description: 'Tüm komutları gösterir.',
+  usage: 'yardım [komut]'
+};
