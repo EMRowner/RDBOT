@@ -8,7 +8,7 @@ exports.run = (client, message, params) => {
   const embedyardim = new Discord.RichEmbed()
   .setAuthor(client.user.username, client.user.avatarURL)
   .setThumbnail("https://cdn.discordapp.com/attachments/502832520467972116/513046607013609477/BOT_cn.png")
-  .setDescription(`[Bot Davet Linki](  https://discordapp.com/oauth2/authorize?client_id=506420022328164352&scope=bot&permissions=2146958847  ) | ` + `[Destek Sunucusu](  https://discord.gg/dM5Fu4h  ) \n\n**Ping:** ${Math.round(client.ping)}ms!`)
+  .setDescription(`[Bot Davet Linki](  https://discordapp.com/oauth2/authorize?client_id=506371036963667979&scope=bot&permissions=2146958847  ) | ` + `[Destek Sunucusu](  https://discord.gg/ByU6xAM  ) \n\n**Ping:** ${Math.round(client.ping)}ms!`)
   .setColor("#FFB900")
   .addField("**RTD BOT • Komutlar**", `▫️ **|  id+eğlence:** Eğlence komutlarını gösterir. \n▫️ **|   id+moderasyon:** Moderasyon komutlarını gösterir. \n▫️ **|  id+anakomut:** Temel komutları gösterir. \n▫️ **|  id+resimefekt:** Resim Efektleri komutlarını gösterir.`)
   .setFooter(`${message.author.username} tarafından istendi.`, message.author.avatarURL)
