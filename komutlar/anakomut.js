@@ -7,7 +7,7 @@ exports.run = (client, message, params) => {
 
   const embedeğlence2 = new Discord.RichEmbed()
   .setColor("#FFB900")
-  .addField("●İD● BOT • Ana Komutları", `▫️ **|  id+ailemiz:** Ailemizi gösterir \n▫️ **| id+bildiri** Bot hakkında önerinizi yapımcıya yollar \n▫️ **| id+davet** Botun davet linklerini gösterir \n▫️ **| id+istatistik** Botun istatistiğini gösterir \n▫️ **| id+kullanıcıbilgim **Komutu kullanan kişinin bilgilerini gösterir \n▫️ **| id+reboot **[Yapımcı Komutu] \n▫️ **| id+Sunucubilgi **Sunucu hakkında bilgiri verir \n▫️ **| id+afk** Afk olursunuz .`)
+  .addField("●İD● BOT • Ana Komutları", `▫️ **|  id+bildiri** Bot hakkında önerinizi yapımcıya yollar \n▫️ **| id+davet** Botun davet linklerini gösterir \n▫️ **| id+istatistik** Botun istatistiğini gösterir \n▫️ **| id+kullanıcıbilgim **Komutu kullanan kişinin bilgilerini gösterir \n▫️ **| id+reboot **[Yapımcı Komutu] \n▫️ **| id+Sunucubilgi **Sunucu hakkında bilgiri verir \n▫️ **| id+afk** Afk olursunuz .`)
   .setFooter(`${message.author.username} tarafından istendi.`, message.author.avatarURL)
 
   if (!params[0]) {
