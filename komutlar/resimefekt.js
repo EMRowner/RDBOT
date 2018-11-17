@@ -7,7 +7,7 @@ exports.run = (client, message, params) => {
 
   const embedeğlence2 = new Discord.RichEmbed()
   .setColor("#FFB900")
-  .addField("●İD● BOT • Eğlence Komutları", `▫️ **|  id+wasted:** Profilinize wasted efekti ekler \n▫️ **| id+sniper **Profilinize sniper efekti ekler \n▫️ **| id+kralol **Kralolma GIF i gönderir**  .`)
+  .addField("●İD● BOT • Resimefekt Komutları", `▫️ **|  id+wasted:** Profilinize wasted efekti ekler \n▫️ **| id+sniper **Profilinize sniper efekti ekler \n▫️ **| id+kralol **Kralolma GIF i gönderir**  .`)
   .setFooter(`${message.author.username} tarafından istendi.`, message.author.avatarURL)
 
   if (!params[0]) {
