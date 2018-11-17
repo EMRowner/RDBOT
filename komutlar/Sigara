@@ -1,34 +1,34 @@
 exports.run = (client, message, args) => {
     message.channel.send("Psst. YakÄ±yorum.").then(async msg => {
                     setTimeout(() => {
-            message.react('ğŸš¬');
+            message.react('🚬');
         }, 1000);
           setTimeout(() => {
             message.react('🚬˜');
         }, 1500);
         setTimeout(() => {
-            msg.edit('🔥¬');
+            msg.edit('🔥');
         }, 1800);
         setTimeout(() => {
-            msg.edit('¬ 🔥˜ ');
+            msg.edit('🚬  🔥');
         }, 2300);
         setTimeout(() => {
-            msg.edit('🚬¬ 🔥˜🔥˜ ');
+            msg.edit('🚬 🔥🔥 ');
         }, 2800);
         setTimeout(() => {
-            msg.edit('🚬¬ 🔥˜🔥˜🔥˜ ');
+            msg.edit('🚬 🔥🔥🔥 ');
         }, 3300);
         setTimeout(() => {
-            msg.edit('🚬¬ 🔥˜🔥˜');
+            msg.edit('🚬 🔥🔥');
         }, 3800);
         setTimeout(() => {
-            msg.edit('🚬¬ 🔥˜');
+            msg.edit('🚬 🔥');
         }, 4300);
         setTimeout(() => {
-            msg.edit('🚬¬ ');
+            msg.edit('🚬 ');
         }, 4800);
     setTimeout(() => {
-            msg.edit('**Sigara bitti** Not: Sigara sağlığa zararlıdı Lütfen sigara içmeyiniz!');
+            msg.edit('**Sigara bitti** Not: Sigara sağlığa zararlıdır Lütfen sigara içmeyiniz!');
         }, 5300);
     });
 };
