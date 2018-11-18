@@ -100,9 +100,6 @@ client.on("message", async message => {
 });    
 }
 }); 
- const emoji = (client.emojis.find("xd", "emoji").toString())
-message.channel.send(`${xd} Lifely başkan ile serinlemeye devam.`)
-
 client.on("message", msg => {
         const kufur = ["oç", "amk", "ananı sikiyim", "ananıskm", "piç", "amk", "amsk", "sikim", "sikiyim", "orospu çocuğu", "piç kurusu", "kahpe", "orospu", "mal", "sik", "yarrak", "amcık", "amık", "yarram", "sikimi ye", "mk", "mq", "aq", "ak", "amq","@mk"];
         if (kufur.some(word => msg.content.includes(word))) {
