@@ -83,7 +83,6 @@ client.on('message', msg => {
     msg.reply('**Aleyküm selam, Hoşgeldin**');
   }
 });
-const Jimp = require('jimp');
  
 client.on("guildMemberAdd", async member => {
   const channel = member.guild.channels.find('name', 'log');//log ismini ayarlıyacaksınız log adında kanal açın
