@@ -106,7 +106,7 @@ client.on("message", msg => {
     if (kufur.some(word => msg.content.includes(word)) ) {
 	    if (!msg.member.hasPermission("BAN_MEMBERS"))
         msg.delete()
-        msg.reply("Küfür tespit edildi ve imha edildi!")
+        msg.reply("bu şahısın küfür ettiği tespit edildi ve imha edildi!")
     }
 });
 
