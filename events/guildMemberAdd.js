@@ -1,3 +1,3 @@
-client.on("guildMemberAdd", member => {
-  let username = member.user.username;
+module.exports = member => {
+    let username = member.user.username
 };
