@@ -104,6 +104,7 @@ client.on("message", async message => {
 client.on("message", msg => {
     const kufur = ["amk", "aq", "orospu", "oruspu", "oç", "sikerim", "yarrak", "piç", "amq", "sik", "amcık", "çocu", "sex", "seks", "amına", "meme"];
     if (kufur.some(word => msg.content.includes(word)) ) {
+	    if (!msg.member.hasPermission("BAN_MEMBERS"))
         msg.delete()
         msg.reply("Küfür tespit edildi ve imha edildi!")
     }
