@@ -7,7 +7,7 @@ exports.run = (client, message, params) => {
 
   const embedeğlence2 = new Discord.RichEmbed()
   .setColor("#FFB900")
-  .addField("●İD● BOT • Eğlence Komutları", `▫️ **|  id+8ball ** Sihirli 8ball sorularınızı cevaplar \n▫️ **| id+sigara **sigara yakar \n▫️ **| id+balıktut **Balık tutar \n▫️ **| id+çay Rastgele çay GIF i atar \n▫️ **|** id+fakemesaj Etiketlediğiniz kişinin fake mesajını atar ** \n▫️ **|** id+hesapla Belirtilen işlemi yapar \n▫️ **| id+mcbaşarım Yazılan şeyi Minecraft başarımı yapar ** \n▫️ **| id+reklamlar Reklamlar GIF i atar \n▫️ **| **id+slots Slot oyunu oynatır ** \n▫️ **| id+yaz **İstediğiniz şeyi bota yazdırır ** \n▫️ **| id+espri** Espri yapar   .`)
+  .addField("●ER● BOT • Eğlence Komutları", `▫️ **|  r!8ball ** Sihirli 8ball sorularınızı cevaplar \n▫️ **| r!sigara **sigara yakar \n▫️ **| r!balıktut **Balık tutar \n▫️ **| r!çay Rastgele çay GIF i atar \n▫️ **|** r!fakemesaj Etiketlediğiniz kişinin fake mesajını atar ** \n▫️ **|** r!hesapla Belirtilen işlemi yapar \n▫️ **| r!mcbaşarım Yazılan şeyi Minecraft başarımı yapar ** \n▫️ **| r!reklamlar Reklamlar GIF i atar \n▫️ **| r!slots** Slot oyunu oynatır ** \n▫️ **| r!yaz **İstediğiniz şeyi bota yazdırır ** \n▫️ **| r!espri** Espri yapar   .`)
   .setFooter(`${message.author.username} tarafından istendi.`, message.author.avatarURL)
 
   if (!params[0]) {
