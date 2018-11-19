@@ -14,7 +14,7 @@ exports.run = function(client, message, args) {
 
     var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)];
 
-    if(!soru) return message.reply('Bir soru belirt. Doğru Kullanım: id+8ball <soru>')
+    if(!soru) return message.reply('Bir soru belirt. Doğru Kullanım: r!8ball <soru>')
     else message.channel.send(cevap)
 
 };
