@@ -7,7 +7,7 @@ exports.run = (client, message, params) => {
 
   const embedeğlence2 = new Discord.RichEmbed()
   .setColor("#FFB900")
-  .addField("●İD● BOT • Atatürk Komutları", `▫️ **|  id+atatürk:** Atatürk GIF i atar.`)
+  .addField("●ER● BOT • Atatürk Komutları", `▫️ **|  r!atatürk:** Atatürk GIF i atar.`)
   .setFooter(`${message.author.username} tarafından istendi.`, message.author.avatarURL)
 
   if (!params[0]) {
