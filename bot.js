@@ -83,7 +83,14 @@ client.on('message', msg => {
     msg.reply('**Aleyküm selam, Hoşgeldin**');
   }
 });
- 
+ client.on("guildMemberAdd", member => {
+    let otorol = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/otorol.json", "utf8"));
+  
+    var role = otorol[member.guild.id].role;
+  const rol = member.guild.roles.find('name', role);
+    if (!rol)
+    member.addRole(role);
+});
 client.on("guildMemberAdd", async member => {
   const channel = member.guild.channels.find('name', 'gelen-giden');//log ismini ayarlıyacaksınız log adında kanal açın
   if (!channel) return;
