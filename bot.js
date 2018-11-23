@@ -243,7 +243,8 @@ client.on('message', async msg => {
   
 
 	return undefined;
-});
+
+	
 
 async function handleVideo(video, msg, voiceChannel, playlist = false) {
     const serverQueue = queue.get(msg.guild.id);
@@ -328,7 +329,6 @@ client.load = command => {
       client.commands.set(command, cmd);
       cmd.conf.aliases.forEach(alias => {
         client.aliases.set(alias, cmd.help.name);
-      });
       resolve();
     } catch (e){
       reject(e);
