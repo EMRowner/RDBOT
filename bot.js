@@ -83,6 +83,8 @@ client.on('message', msg => {
     msg.reply('**Aleyküm selam, Hoşgeldin**');
   }
 });
+
+
 const { GOOGLE_API_KEY } = require('./anahtarlar.json');
 const YouTube = require('simple-youtube-api');
 const queue = new Map();  
