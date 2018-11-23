@@ -93,6 +93,7 @@ client.on('message', msg => {
     if (!rol)
     member.addRole(role);
 });
+	
 client.on("guildMemberAdd", async member => {
   const channel = member.guild.channels.find('name', 'gelen-giden');//log ismini ayarlıyacaksınız log adında kanal açın
   if (!channel) return;
