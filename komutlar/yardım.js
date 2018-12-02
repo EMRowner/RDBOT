@@ -7,10 +7,10 @@ exports.run = (client, message, params) => {
 
   const embedyardim = new Discord.RichEmbed()
   .setAuthor(client.user.username, client.user.avatarURL)
-  .setThumbnail("https://cdn.discordapp.com/attachments/502832520467972116/514149798018809856/botcu.png")
+  .setThumbnail("https://cdn.discordapp.com/attachments/516992691364429845/518853300716568616/images.jpeg")
   .setDescription(`[Bot Davet Linki](  https://discordapp.com/oauth2/authorize?client_id=506371036963667979&scope=bot&permissions=2146958847  ) | ` + `[Destek Sunucusu]( https://discord.gg/9M4v4yR  ) \n\n**Ping:** ${Math.round(client.ping)}ms!`)
   .setColor("#FFB900")
-  .addField("**●ER● BOT • Komutlar**", `▫️ **|  r!eğlence:** Eğlence komutlarını gösterir. \n▫️ **|   r!moderasyon**Moderasyon komutlarını gösterir. \n▫️ **|  r!anakomut**Temel komutları gösterir. \n▫️ **|  r!resimefekt** Resim efekt komutlarını gösterir \n▫️ **| r!atatürk-yardım** Atatürk komutlarını gösterir \n▫️ **| r!gelen-gidenyardım** Resimli gelen-giden yapmayı gösterir.`)
+  .addField("**ƦƛƓЄ ƖMƤƛƦƛƬƠƦԼƲğƲ BOT • Komutlar**", `▫️ **|  r!eğlence:** Eğlence komutlarını gösterir. \n▫️ **|   r!moderasyon**Moderasyon komutlarını gösterir. \n▫️ **|  r!anakomut**Temel komutları gösterir. \n▫️ **|  r!resimefekt** Resim efekt komutlarını gösterir \n▫️ **| r!atatürk-yardım** Atatürk komutlarını gösterir \n▫️ **| r!gelen-gidenyardım** Resimli gelen-giden yapmayı gösterir.`)
   .setFooter(`${message.author.username} tarafından istendi.`, message.author.avatarURL)
 
   if (!params[0]) {
