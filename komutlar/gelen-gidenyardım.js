@@ -7,7 +7,7 @@ exports.run = (client, message, params) => {
 
   const embedeğlence2 = new Discord.RichEmbed()
   .setColor("#FFB900")
-  .addField("•ER• BOT • Resimli gelen-giden ayarlama", `▫️ **|  Kurulum : gelen-giden diye bir yer açıcaksınız.Artık bundan sonra bot oto olarak atar merak etmeyin .**`)
+  .addField("ƦƛƓЄ ƖMƤƛƦƛƬƠƦԼƲğƲ BOT • Resimli gelen-giden ayarlama", `▫️ **|  Kurulum : gelen-giden diye bir yer açıcaksınız.Artık bundan sonra bot oto olarak atar merak etmeyin .**`)
   .setFooter(`${message.author.username} tarafından istendi.`, message.author.avatarURL)
 
   if (!params[0]) {
