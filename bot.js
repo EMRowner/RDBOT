@@ -108,6 +108,9 @@ client.on("guildMemberAdd", async member => {
               }, 10000);
         }
     })
+}
+});
+}));
 client.on("guildMemberRemove", async member => {
    const fs = require('fs');
     let gkanal = JSON.parse(fs.readFileSync("././sunucuyaözelayarlar/glog.json", "utf8"));
