@@ -1,0 +1,19 @@
+const Discord = require('discord.js');
+
+ exports.run = (client, message, args) => {
+   var cevaplar = ['Tagımız **! ƦƛƓЄ↬**' ];
+   var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)];
+   message.reply(cevap);
+};
+exports.conf = {
+ enabled: true,
+ guildOnly: false,
+ aliases: ['çaypişir', 'caykaynat','çaykaynat'],
+ permLevel: 0 ,
+};
+
+exports.help = {
+ name: 'tag',
+ description: 'çay gifi gönderir',
+ usage: 'tag'
+};
