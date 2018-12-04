@@ -11,7 +11,7 @@ module.exports = client => {
    var oyun = [
         " ❯ r!yardım | r!davet",
      " ❯ r!sniper",
-     "❯ r!öneri",
+     "❯ r!espri",
      "❯ r!mcbaşarım ",
      `❯ 👥${client.users.size} Kullanıcı!`,
         "❯  r!sigara",
