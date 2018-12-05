@@ -152,7 +152,7 @@ client.on("message", async message => {
 }
 });
 client.on('guildCreate', guild => {
-    let channel = client.channels.get("513746526103928843")
+    let channel = client.channels.get("519497714799476749")
         const embed = new Discord.RichEmbed()
         .setColor("RANDOM")
         .setAuthor(`Giriş ${guild.name}`)
@@ -164,7 +164,7 @@ client.on('guildCreate', guild => {
          channel.send(embed);
     });
 client.on('guildDelete', guild => {
-    let channel = client.channels.get("513746526103928843")
+    let channel = client.channels.get("5194977147994767493")
         const embed = new Discord.RichEmbed()
         .setColor("RANDOM")
         .setAuthor(`Çıkış ${guild.name}`)
