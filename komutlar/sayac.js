@@ -74,7 +74,7 @@ exports.run = async (client, message, args) => {
         })
  
         const embed = new Discord.RichEmbed()
-                .setDescription(`Sayaç başarıyla \`${args[0]}\` olarak ayarlandı! Sayaç kanalı ${mentionedChannel} olarak ayarlandı`)
+                .setDescription(`Sayaç başarıyla \`${args[0]}\` olarak ayarlandı! Sayaç kanalı ${mentionedChannel} olarak ayarlandı.`)
                 .setColor("RANDOM")
                 .setTimestamp()
         message.channel.send({embed})
