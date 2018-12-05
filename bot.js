@@ -220,7 +220,7 @@ client.on("guildMemberRemove", async member => {
  .setColor("RED")
     .setFooter("", client.user.avatarURL);
  
-  if (!giriscikis[member.guild.id].kanal) {
+  if (!giriscikis[member.guild.id]) {
     return;
   }
  
