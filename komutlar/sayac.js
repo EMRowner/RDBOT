@@ -4,7 +4,7 @@ const fs = require('fs')
 exports.run = async (client, message, args) => {
         if(!args[0]) {
                 const embed = new Discord.RichEmbed()
-                        .setDescription(`Lütfen bir sayı yazın!`)
+                        .setDescription(`Şu şekilde yazın r!sayaç <kişi> <#kanal>`)
                         .setColor("RED")
                         .setTimestamp()
                 message.channel.send({embed})
