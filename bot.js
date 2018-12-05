@@ -184,7 +184,37 @@ client.elevation = message => {
   if (message.author.id === ayarlar.sahip) permlvl = 4;
   return permlvl;
 };
+client.on("message", async message => {
+    let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));
+    if(sayac[message.guild.id]) {
+        if(sayac[message.guild.id].sayi <= message.guild.members.size) {
+            const embed = new Discord.RichEmbed()
+                .setDescription(`Tebrikler ${message.guild.name}! Başarıyla ${sayac[message.guild.id].sayi} kullanıcıya ulaştık! Sayaç sıfırlandı!`)
+                .setColor(ayarlar.renk)
+                .setTimestamp()
+            message.channel.send({embed})
+            delete sayac[message.guild.id].sayi;
+            delete sayac[message.guild.id];
+            fs.writeFile("./ayarlar/sayac.json", JSON.stringify(sayac), (err) => {
+                console.log(err)
+            })
+        }
+    }
+})
 
+// Sunucuya birisi girdiği zaman mesajı yolluyalım
+
+client.on("guildMemberAdd", async member => {
+    let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));
+    const channel = member.guild.channels.find("name", "sayac")
+    channel.send(`${sayac[member.guild.id].sayi} olmamıza son ${sayac[member.guild.id].sayi - member.guild.members.size} üye kaldı!`)
+})
+
+client.on("guildMemberRemove", async member => {
+    let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));
+    const channel = member.guild.channels.find("name", "sayac")
+    channel.send(`${sayac[member.guild.id].sayi} olmamıza son ${sayac[member.guild.id].sayi - member.guild.members.size} üye kaldı!`)
+})
 
 
 var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
