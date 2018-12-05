@@ -220,7 +220,7 @@ client.on("guildMemberRemove", async member => {
  .setColor("RED")
     .setFooter("", client.user.avatarURL);
  
-  if (!giriscikis[member.guild.id]) {
+  if (!giriscikis[member.guild.id.kanal]) {
     return;
   }
  
@@ -258,7 +258,7 @@ client.on("guildMemberAdd", async member => {
 client.on("guildMemberAdd", member => {
     let otorol = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/otorol.json", "utf8"));
   
-    var role = otorol[member.guild.id];
+    var role = otorol[member.guild.id.role];
   const rol = member.guild.roles.find('name', role);
     if (!rol)
     member.addRole(role);
