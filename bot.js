@@ -184,13 +184,14 @@ client.elevation = message => {
   if (message.author.id === ayarlar.sahip) permlvl = 4;
   return permlvl;
 };
+ 
 client.on("message", async message => {
     let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));
     if(sayac[message.guild.id]) {
         if(sayac[message.guild.id].sayi <= message.guild.members.size) {
             const embed = new Discord.RichEmbed()
                 .setDescription(`Tebrikler ${message.guild.name}! Başarıyla ${sayac[message.guild.id].sayi} kullanıcıya ulaştık! Sayaç sıfırlandı!`)
-                .setColor(ayarlar.renk)
+                .setColor("RANDOM")
                 .setTimestamp()
             message.channel.send({embed})
             delete sayac[message.guild.id].sayi;
@@ -201,20 +202,59 @@ client.on("message", async message => {
         }
     }
 })
-
+ 
 // Sunucuya birisi girdiği zaman mesajı yolluyalım
-
-client.on("guildMemberAdd", async member => {
-    let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));
-    const channel = member.guild.channels.find("name", "sayac")
-    channel.send(`${sayac[member.guild.id].sayi} olmamıza son ${sayac[member.guild.id].sayi - member.guild.members.size} üye kaldı!`)
-})
-
+ 
+ 
+ 
+ 
+// Sunucuya birisi girdiği zaman mesajı yolluyalım
+ 
+ 
 client.on("guildMemberRemove", async member => {
-    let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));
-    const channel = member.guild.channels.find("name", "sayac")
-    channel.send(`${sayac[member.guild.id].sayi} olmamıza son ${sayac[member.guild.id].sayi - member.guild.members.size} üye kaldı!`)
-})
+        let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));
+  let giriscikis = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));  
+  let embed = new Discord.RichEmbed()
+    .setTitle('')
+    .setDescription(``)
+ .setColor("RED")
+    .setFooter("", client.user.avatarURL);
+ 
+  if (!giriscikis[member.guild.id].kanal) {
+    return;
+  }
+ 
+  try {
+    let giriscikiskanalID = giriscikis[member.guild.id].kanal;
+    let giriscikiskanali = client.guilds.get(member.guild.id).channels.get(giriscikiskanalID);
+    giriscikiskanali.send(`:loudspeaker: :outbox_tray: Kullanıcı Ayrıldı. \`${sayac[member.guild.id].sayi}\` Kişi Olmamıza \`${sayac[member.guild.id].sayi - member.guild.memberCount}\` Kişi Kaldı \`${member.guild.memberCount}\` Kişiyiz! :x: **${member.user.tag}**`);
+  } catch (e) { // eğer hata olursa bu hatayı öğrenmek için hatayı konsola gönderelim.
+    return console.log(e)
+  }
+ 
+});
+client.on("guildMemberAdd", async member => {
+        let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));
+  let giriscikis = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));  
+  let embed = new Discord.RichEmbed()
+    .setTitle('')
+    .setDescription(``)
+ .setColor("GREEN")
+    .setFooter("", client.user.avatarURL);
+ 
+  if (!giriscikis[member.guild.id].kanal) {
+    return;
+  }
+ 
+  try {
+    let giriscikiskanalID = giriscikis[member.guild.id].kanal;
+    let giriscikiskanali = client.guilds.get(member.guild.id).channels.get(giriscikiskanalID);
+    giriscikiskanali.send(`:loudspeaker: :inbox_tray: Kullanıcı Katıldı! **${sayac[member.guild.id].sayi}** Kişi Olmamıza **${sayac[member.guild.id].sayi - member.guild.memberCount}** Kişi Kaldı **${member.guild.memberCount}** Kişiyiz! ${process.env.basarili} Hoşgeldin! **${member.user.tag}**` );
+  } catch (e) { // eğer hata olursa bu hatayı öğrenmek için hatayı konsola gönderelim.
+    return console.log(e)
+  }
+ 
+});
 
 
 var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
