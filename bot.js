@@ -83,6 +83,11 @@ client.on('message', msg => {
     msg.reply('Aleyküm Selam.');
   }
 });
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === 'küvette sex') {
+    msg.reply('Seni Küvette Bekliyorum Aşkım.');
+  }
+});
 const snekfetch = require('snekfetch');
 let points = JSON.parse(fs.readFileSync('./xp.json', 'utf8'));
 
