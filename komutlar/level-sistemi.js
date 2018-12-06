@@ -26,12 +26,12 @@ exports.run = (client, message, params) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['atatürk-yardım'],
+  aliases: [''],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'atatürk-yardım',
-  description: 'atatürk-yardım',
-  usage: 'atatürk-yardım'
+  name: 'level-sistemi,
+  description: '-level-sistemi',
+  usage: 'level-sistemi'
 };
