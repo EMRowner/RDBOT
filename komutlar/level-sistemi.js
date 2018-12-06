@@ -31,7 +31,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'level-sistemi,
+  name: 'level-sistemi',
   description: '-level-sistemi',
   usage: 'level-sistemi'
 };
