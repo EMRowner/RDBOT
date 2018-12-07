@@ -4,7 +4,7 @@ const fs = require('fs')
 exports.run = async (client, message, args) => {
         if(!args[0]) {
                 const embed = new Discord.RichEmbed()
-                        .setDescription(`Şu şekilde yazın r!sayaç <kişi> <#kanal>`)
+                        .setDescription(`Lütfen bir sayı yazın!`)
                         .setColor("RED")
                         .setTimestamp()
                 message.channel.send({embed})
@@ -74,7 +74,7 @@ exports.run = async (client, message, args) => {
         })
  
         const embed = new Discord.RichEmbed()
-                .setDescription(`Sayaç başarıyla \`${args[0]}\` olarak ayarlandı! Sayaç kanalı ${mentionedChannel} olarak ayarlandı.`)
+                .setDescription(`Sayaç başarıyla \`${args[0]}\` olarak ayarlandı! Sayaç kanalı ${mentionedChannel} olarak ayarlandı`)
                 .setColor("RANDOM")
                 .setTimestamp()
         message.channel.send({embed})
