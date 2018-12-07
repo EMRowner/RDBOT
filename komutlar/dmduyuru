@@ -1,57 +1,36 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const ayarlar = require('../ayarlar.json');
-const randomizeCase = word => word.split('').map(c => Math.random() > 0.5 ? c.toUpperCase() : c.toLowerCase()).join('');
+const Discord = require('discord.js')
 
-var prefix = ayarlar.prefix;
+exports.run = (client, message, args) => {
+  if (message.author.id != "Sizin ID'niz") return message.channel.send("Bunun için iznin yok");
 
+  let mesaj = args.slice(0).join(' ');
+if (mesaj.length < 1) return message.channel.send('Birşey Yazmalısınız');
 
+  message.delete();
 
+  console.log(`Duyuru: "${message.author.username}#${message.author.discriminator}" "${mesaj}"`);
 
-const mapping = {
-    ' ': '   ',
-    '0': ':zero:',
-    '1': ':one:',
-    '2': ':two:',
-    '3': ':three:',
-    '4': ':four:',
-    '5': ':five:',
-    '6': ':six:',
-    '7': ':seven:',
-    '8': ':eight:',
-    '9': ':nine:',
-    '!': ':grey_exclamation:',
-    '?': ':grey_question:',
-    '#': ':hash:',
-    '*': ':asterisk:'
-};
+      const mesajat = new Discord.RichEmbed()
+      .setColor('RANDOM')
+      .setDescription('' + mesaj + '')
 
-'abcdefghijklmnopqrstuvwxyz'.split('').forEach(c => {
-    mapping[c] = mapping[c.toUpperCase()] = ` :regional_indicator_${c}:`;
-});
+      client.users.forEach(u => {
+u.sendEmbed(mesajat)
+})
 
-exports.run = (bot, msg, args) => {
-    if (args.length < 1) {
-        throw '**Bir mesaj belirt**';
-    }
+message.channel.send(`✅ Mesaj başarıyla **` + client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString() + `** kullanıcıya gönderildi.`);
 
-    msg.channel.send(
-        args.join(' ')
-            .split('')
-            .map(c => mapping[c] || c)
-            .join('')
-    );
 };
 
 exports.conf = {
   enabled: true,
-  guildOnly: false,
-  aliases: [],
-  permLevel: 0
+  guildOnly: true,
+  aliases: ['dmduyuru'],
+  permLevel: 4
 };
 
 exports.help = {
-  name: 'emojiyazı',
-  description: 'Mesajınızı emojiye çevirir.',
-  usage: 'emojiyazı <mesaj>'
+  name: 'dmduyuru',
+  description: 'İstediğiniz şeyi bota duyurtur.',
+  usage: 'dmduyuru'
 };
