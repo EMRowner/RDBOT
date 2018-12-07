@@ -39,4 +39,4 @@ module.exports = class ModChannelCommand extends Command {
         .setFooter('Mod Log Ayarlandi.')
         return msg.embed(embed)
           }
-});
+};
