@@ -6,7 +6,7 @@ exports.run = (client, message, args, member) => {
   let incidentchannel = message.guild.channels.find(`name`, "duyurular");
     if(!incidentchannel) return message.channel.send(":x: **duyurular** kanalını bulamıyorum.");
 
-    incidentchannel.send(` @everyone @ƦƛƓЄ ƖMƤƛƦƛƬƠƦԼƲğƲ | **Duyuru**\n\n- ${mesaj}`);
+    incidentchannel.send(` @everyone | **Duyuru**\n\n- ${mesaj}`);
   message.channel.send(':white_check_mark: Duyuru başarıyla yapıldı.')
 };
 
