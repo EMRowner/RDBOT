@@ -190,6 +190,7 @@ client.elevation = message => {
   return permlvl;
 };
  
+ 
 client.on("message", async message => {
     let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));
     if(sayac[message.guild.id]) {
@@ -225,7 +226,7 @@ client.on("guildMemberRemove", async member => {
  .setColor("RED")
     .setFooter("", client.user.avatarURL);
  
-  if (!giriscikis[member.guild.id.kanal]) {
+  if (!giriscikis[member.guild.id].kanal) {
     return;
   }
  
@@ -260,6 +261,7 @@ client.on("guildMemberAdd", async member => {
   }
  
 });
+
 client.on("guildMemberAdd", member => {
     let otorol = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/otorol.json", "utf8"));
   
