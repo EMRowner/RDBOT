@@ -502,7 +502,6 @@ function play(guild, song) {
   .setColor('RANDOM'));
 }
 
-Save  New  Duplicate & Edit  Just Text
 client.on('guildBanAdd', async (guild, member) => {
     const fs = require('fs');
 let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
