@@ -263,11 +263,10 @@ client.on("guildMemberAdd", async member => {
 });
 
 client.on("guildMemberAdd", member => {
-    let otorol = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/otorol.json", "utf8"));
-  
-    var role = otorol[member.guild.id.role];
-  const rol = member.guild.roles.find('name', role);
-    if (!rol)
+    let otorol = JSON.parse(fs.readFileSync("./ayarlar/otorol.json", "utf8"));
+    if (!otorol[member.guild.id]) return;
+    var role = otorol[member.guild.id].role;
+    if (!role) return;
     member.addRole(role);
 });
  client.on('message', async msg => {
