@@ -539,7 +539,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
 			.setColor('RANDOM')
 			.setDescription(`<@!${member.user.id}>, ${member.user.tag}`)
 			.setThumbnail(member.user.avatarURL)
-			.setFooter`ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${member.user.id}`)
+			.setFooter(`ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${member.user.id}`)
 			.setTimestamp();
 			hgK.send({embed});
 
