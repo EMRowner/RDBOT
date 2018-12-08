@@ -7,7 +7,7 @@ exports.run = (client, message, params) => {
 
   const embedeğlence2 = new Discord.RichEmbed()
   .setColor("#FFB900")
-  .addField("ƦƛƓЄ ƖMƤƛƦƛƬƠƦԼƲğƲ BOT • Level Sistemi", `▫️ **| Kısa Bilgi :** Bu özelliklle sunucunuzda ödüllendirmeler yapabilirsiniz \n▫️ **| r!profil** Bu komutla profilinizi görebilirsiniz!. `)
+  .addField("ƝЄƠƝ  ƖMƤƛƦƛƬƠƦԼƲğƲ BOT • Level Sistemi", `▫️ **| Kısa Bilgi :** Bu özelliklle sunucunuzda ödüllendirmeler yapabilirsiniz \n▫️ **| r!profil** Bu komutla profilinizi görebilirsiniz!. `)
   .setFooter(`${message.author.username} tarafından istendi.`, message.author.avatarURL)
 
   if (!params[0]) {
