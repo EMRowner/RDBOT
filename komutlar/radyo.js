@@ -8,19 +8,20 @@ const radio = {
     "power": "https://listen.powerapp.com.tr/powerfm/mpeg/icecast.audio?/;stream.nsv",
     "metrofm": "https://17703.live.streamtheworld.com/METRO_FM_SC?type=.mp3",
     "fenomen": "https://listen.radyofenomen.com/fenomen/128/icecast.audio?/;stream.nsv",
-    "slowturk": "https://radyo.dogannet.tv/slowturk",
-   "bosradyo": "bos"
+    "slowtürk": "https://radyo.dogannet.tv/slowturk",
+   "kralpop": "https://www.kralmuzik.com.tr/radyo/kral-pop"
 }
             if (!msg.guild.voiceConnection) {
 
-                if (!msg.member.voiceChannel) return msg.channel.send(':basarisiz: | Lütfen bir **odaya gir!**')
+                if (!msg.member.voiceChannel) return msg.channel.send('❌ | Lütfen Bir Odaya Gir  !')
 
             }
+
             let args = msg.content.split(" ").slice(1).join(" ").toLowerCase();
 
-      if (!args) return msg.channel.send(':basarisiz: | Bir **radyo seçin:** **number1** | **powerturk** | **power** | **metrofm** | **fenomen** | **slowtürk**')
+      if (!args) return msg.channel.send('❌ | Bir Radyo Seçin : **number1**, **powerturk**, **power**, **metrofm**, **fenomen**, **slowtürk**, **kralpop (bozuk)**')
 
-        if(!radio[args]) return msg.channel.send(':basarisiz: | Lütfen yandaki Radyolardan **birini seç:** **number1** | **powerturk** | **power** | **metrofm** | **fenomen** | **slowtürk**')
+        if(!radio[args]) return msg.channel.send('❌ | Lütfen Yandaki Radiolardan Birini Seç : **number1**, **powerturk**, **power**, **metrofm**, **fenomen**, **slowtürk**, **kralpop (bozuk)**')
 
     msg.member.voiceChannel.join().then(connection => {
 
@@ -29,30 +30,21 @@ const radio = {
             connection.playStream(res);
 
      let embed = new Discord.RichEmbed()
-        .setAuthor("Radyo Çalınıyor", `https://images-ext-1.discordapp.net/external/0O8M-0Q93aKVqx6tonQInp6W7QRDjlLkH1E6mHMaCeM/%3Fv%3D1/https/cdn.discordapp.com/emojis/475822981277286400.gif`)
-        .setColor("#FFB900")
-        .addField("RADYO", args)
-        .setFooter(msg.author.username, msg.author.avatarURL);
+        .setAuthor(args)
+        .setColor(0xFF0000)
+        .addField("Radyo", args)
+        .addField("Bağlantı", radio[args])
+        .setFooter(msg.author.tag);
 
-     msg.channel.send(embed);
+     msg.channel.send("**İyi Dinlemeler**", embed);
 
           });
 
   });
-  
-  client.on('message', msg => {
-  if (msg.author.id === client.user.id) return
-  if (msg.content.startsWith('m!kapat')) {
-    
-    if (!msg.member.voiceChannel) return msg.channel.sendEmbed(new Discord.RichEmbed()
-    .setColor('#C34E4E')
-    .setDescription(':basarisiz: | Sesli bir kanalda değilsin!'));
-    
-    msg.member.voiceChannel.leave()
-    
-}});
 
-};
+}
+
+
 
 
 exports.conf = {
@@ -60,10 +52,9 @@ exports.conf = {
     guildOnly: false,
     aliases: ["radio"],
     permLevel: 0
-};
-
+  };
 exports.help = {
     name : "radyo",
-    usage: "radyo",
-    description: "radyo"
-};
+    usage: "radyo (kanal)",
+    description:"RADYO dinlersiniz"
+}
