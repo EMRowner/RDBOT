@@ -501,32 +501,8 @@ function play(guild, song) {
   .addField("Süre", `${song.durationm}:${song.durations}`, true)
   .setColor('RANDOM'));
 }
-let cooldown = new Set();
-let cdseconds = 0;
 
-client.on("message", async message => {
-
-  if(message.author.bot) return;
-  if(message.channel.type === "dm") return;
-
-  let prefixes = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/prefix.json", "utf8"));
-  if(!prefixes[message.guild.id]){
-    prefixes[message.guild.id] = {
-      prefixes: ayarlar.prefix
-    };
-  }
- let prefix = prefixes[message.guild.id].prefixes;
-  if(!message.content.startsWith(prefix)) return;
-  if(cooldown.has(message.author.id)){
-    message.delete();
-    return message.reply("Komutlar arasında 5 saniye beklemelisin.")
-  }
-  if(!message.member.hasPermission("ADMINISTRATOR")){
-    cooldown.add(message.author.id);
-  }
-
-
-
+Save  New  Duplicate & Edit  Just Text
 client.on('guildBanAdd', async (guild, member) => {
     const fs = require('fs');
 let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
@@ -539,7 +515,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
 			.setColor('RANDOM')
 			.setDescription(`<@!${member.user.id}>, ${member.user.tag}`)
 			.setThumbnail(member.user.avatarURL)
-			.setFooter(`ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${member.user.id}`)
+			.setFooter(`Bot Mod-Log Sistemi | ID: ${member.user.id}`)
 			.setTimestamp();
 			hgK.send({embed});
 
@@ -558,7 +534,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
 			.setColor('RANDOM')
 			.setDescription(`<@!${member.user.id}>, ${member.user.tag}`)
 			.setThumbnail(member.user.avatarURL)
-			.setFooter(`ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${member.user.id}`)
+			.setFooter(`Bot Mod-Log Sistemi | ID: ${member.user.id}`)
 			.setTimestamp();
 			hgK.send({embed});
 		
@@ -576,7 +552,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
 			.setAuthor(msg.author.tag, msg.author.avatarURL)
 			.setColor('RANDOM')
 			.setDescription(`<@!${msg.author.id}> tarafından <#${msg.channel.id}> kanalına gönderilen "${msg.content}" mesajı silindi.`)
-		.setFooter(` ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${msg.id}`)
+		.setFooter(`Bot Mod-Log Sistemi | ID: ${msg.id}`)
 			hgK.send({embed});
 		
 	})
@@ -593,7 +569,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
 				.setColor('RANDOM')
 				.setAuthor(channel.guild.name, channel.guild.iconURL)
 				.setDescription(`<#${channel.id}> kanalı oluşturuldu. _(metin kanalı)_`)
-				.setFooter(`ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${channel.id}`)
+				.setFooter(`Bot Mod-Log Sistemi | ID: ${channel.id}`)
 				hgK.send({embed});
 			};
 			if (channel.type === "voice") {
@@ -601,7 +577,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
 					.setColor('RANDOM')
 				.setAuthor(channel.guild.name, channel.guild.iconURL)
 				.setDescription(`${channel.name} kanalı oluşturuldu. _(sesli kanal)_`)
-			.setFooter(`ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${channel.id}`)
+			.setFooter(`Bot Mod-Log Sistemi | ID: ${channel.id}`)
 				hgK.send({embed});
 			}
 		
@@ -618,7 +594,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
 					.setColor('RANDOM')
 				.setAuthor(channel.guild.name, channel.guild.iconURL)
 				.setDescription(`${channel.name} kanalı silindi. _(metin kanalı)_`)
-				.setFooter(`ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${channel.id}`)
+				.setFooter(`Bot Mod-Log Sistemi | ID: ${channel.id}`)
 				hgK.send({embed});
 			};
 			if (channel.type === "voice") {
@@ -626,7 +602,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
 				.setColor('RANDOM')
 				.setAuthor(channel.guild.name, channel.guild.iconURL)
 				.setDescription(`${channel.name} kanalı silindi. _(sesli kanal)_`)
-			.setFooter(`ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${channel.id}`)
+			.setFooter(`Bot Mod-Log Sistemi | ID: ${channel.id}`)
 				hgK.send({embed});
 			}
 		
@@ -643,7 +619,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
         .setAuthor(`Rol Silindi!`)
         .setThumbnail(role.guild.iconURL)
         .setDescription(`'${role.name}' adlı rol silindi.`, true)
-  .setFooter(`ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${role.id}`)
+  .setFooter(`Bot Mod-Log Sistemi | ID: ${role.id}`)
     hgK.send({embed})
 })
 
@@ -658,7 +634,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
         .setAuthor(`Emoji Oluşturuldu!`)
         .setThumbnail(emoji.guild.iconURL)
         .setDescription(`<:${emoji.name}:${emoji.id}> - ${emoji.name} adlı emoji oluşturuldu!`, true)
-  .setFooter(` ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${emoji.id}`)
+  .setFooter(`Bot Mod-Log Sistemi | ID: ${emoji.id}`)
     hgK.send({embedds9})
 })
 
@@ -673,7 +649,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
         .setAuthor(`Emoji Silindi!`)
         .setThumbnail(emoji.guild.iconURL)
         .setDescription(`':${emoji.name}:' adlı emoji silindi!`, true)
-  	.setFooter(`ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${emoji.id}`)
+  	.setFooter(`Bot Mod-Log Sistemi | ID: ${emoji.id}`)
    hgK.send(embedds0)
 })
 
@@ -688,7 +664,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
         .setAuthor(`Rol Oluşturuldu!`)
         .setThumbnail(role.guild.iconURL)
         .setDescription(`'${role.name}' adlı rol oluşturuldu.`, true)
-  .setFooter(`ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${role.id}`)
+  .setFooter(`Bot Mod-Log Sistemi | ID: ${role.id}`)
    hgK.send(embedds0)
 })
 
@@ -718,7 +694,7 @@ let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
         .addField("Önceki Mesaj", oldMessage.content, true)
         .addField("Şimdiki Mesaj", newMessage.content, true)
         .addField("Kanal", newMessage.channel.name, true)
-  	.setFooter(`ƝЄƠƝ Bot Mod-Log Sistemi | ID: ${oldMessage.id}`)
+  	.setFooter(`Bot Mod-Log Sistemi | ID: ${oldMessage.id}`)
     hgK.send(embedds4)
 })
 //////////////////
