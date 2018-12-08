@@ -501,7 +501,46 @@ function play(guild, song) {
   .addField("Süre", `${song.durationm}:${song.durations}`, true)
   .setColor('RANDOM'));
 }
+let cooldown = new Set();
+let cdseconds = 0;
 
+client.on("message", async message => {
+
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+
+  let prefixes = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/prefix.json", "utf8"));
+  if(!prefixes[message.guild.id]){
+    prefixes[message.guild.id] = {
+      prefixes: ayarlar.prefix
+    };
+  }
+ let prefix = prefixes[message.guild.id].prefixes;
+  if(!message.content.startsWith(prefix)) return;
+  if(cooldown.has(message.author.id)){
+    message.delete();
+    return message.reply("Komutlar arasında 5 saniye beklemelisin.")
+  }
+  if(!message.member.hasPermission("ADMINISTRATOR")){
+    cooldown.add(message.author.id);
+  }
+
+
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+
+  let commandfile = client.commands.get(cmd.slice(prefix.length));
+  if(commandfile) commandfile.run(cliemt,message,args);
+
+  setTimeout(() => {
+    cooldown.delete(message.author.id)
+  }, cdseconds * 1000)
+
+if (message.content === `<@${bot.user.id}>`) {
+  message.channel.send(`Beni kullanmak için ${prefix}yardım dan komutlara bakabilirisin <@${message.author.id}>!`)
+}
+});
 //////////////////
 client.elevation = message => {
   if(!message.guild) {
