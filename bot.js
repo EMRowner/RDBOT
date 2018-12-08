@@ -541,6 +541,200 @@ if (message.content === `<@${bot.user.id}>`) {
   message.channel.send(`Beni kullanmak için ${prefix}yardım dan komutlara bakabilirisin <@${message.author.id}>!`)
 }
 });
+client.on('guildBanAdd', async (guild, member) => {
+    const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
+  
+  const hgK = member.guild.channels.get(gc[member.guild.id].gkanal)
+    if (!hgK) return;
+   const embed = new Discord.RichEmbed()
+			.setTitle('Üye yasaklandı.')
+			.setAuthor(member.user.tag, member.user.avatarURL)
+			.setColor('RANDOM')
+			.setDescription(`<@!${member.user.id}>, ${member.user.tag}`)
+			.setThumbnail(member.user.avatarURL)
+			.setFooter(`FrezzyBot Mod-Log Sistemi | ID: ${member.user.id}`)
+			.setTimestamp();
+			hgK.send({embed});
+
+		
+	})
+	
+	.on('guildBanRemove', async (guild, member) => {
+		    const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
+  
+  const hgK = member.guild.channels.get(gc[member.guild.id].gkanal)
+    if (!hgK) return;
+			var embed = new Discord.RichEmbed()
+			.setTitle('Üyenin yasaklaması kaldırıldı.')
+			.setAuthor(member.user.tag, member.user.avatarURL)
+			.setColor('RANDOM')
+			.setDescription(`<@!${member.user.id}>, ${member.user.tag}`)
+			.setThumbnail(member.user.avatarURL)
+			.setFooter(`FrezzyBot Mod-Log Sistemi | ID: ${member.user.id}`)
+			.setTimestamp();
+			hgK.send({embed});
+		
+	})
+
+
+	.on('messageDelete', async msg => {
+		if (!msg.guild) return;
+    const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
+  
+  const hgK = msg.guild.channels.get(gc[msg.guild.id].gkanal)
+    if (!hgK) return;
+			var embed = new Discord.RichEmbed()
+			.setAuthor(msg.author.tag, msg.author.avatarURL)
+			.setColor('RANDOM')
+			.setDescription(`<@!${msg.author.id}> tarafından <#${msg.channel.id}> kanalına gönderilen "${msg.content}" mesajı silindi.`)
+		.setFooter(`FrezzyBot Mod-Log Sistemi | ID: ${msg.id}`)
+			hgK.send({embed});
+		
+	})
+
+	.on('channelCreate', async channel => {
+		if (!channel.guild) return;
+    const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
+  
+  const hgK = channel.guild.channels.get(gc[channel.guild.id].gkanal)
+    if (!hgK) return;		
+			if (channel.type === "text") {
+				var embed = new Discord.RichEmbed()
+				.setColor('RANDOM')
+				.setAuthor(channel.guild.name, channel.guild.iconURL)
+				.setDescription(`<#${channel.id}> kanalı oluşturuldu. _(metin kanalı)_`)
+				.setFooter(`FrezzyBot Mod-Log Sistemi | ID: ${channel.id}`)
+				hgK.send({embed});
+			};
+			if (channel.type === "voice") {
+				var embed = new Discord.RichEmbed()
+					.setColor('RANDOM')
+				.setAuthor(channel.guild.name, channel.guild.iconURL)
+				.setDescription(`${channel.name} kanalı oluşturuldu. _(sesli kanal)_`)
+			.setFooter(`FrezzyBot Mod-Log Sistemi | ID: ${channel.id}`)
+				hgK.send({embed});
+			}
+		
+	})
+		
+	.on('channelDelete', async channel => {
+		    const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
+  
+  const hgK = channel.guild.channels.get(gc[channel.guild.id].gkanal)
+    if (!hgK) return;
+			if (channel.type === "text") {
+				let embed = new Discord.RichEmbed()
+					.setColor('RANDOM')
+				.setAuthor(channel.guild.name, channel.guild.iconURL)
+				.setDescription(`${channel.name} kanalı silindi. _(metin kanalı)_`)
+				.setFooter(`FrezzyBot Mod-Log Sistemi | ID: ${channel.id}`)
+				hgK.send({embed});
+			};
+			if (channel.type === "voice") {
+				let embed = new Discord.RichEmbed()
+				.setColor('RANDOM')
+				.setAuthor(channel.guild.name, channel.guild.iconURL)
+				.setDescription(`${channel.name} kanalı silindi. _(sesli kanal)_`)
+			.setFooter(`FrezzyBot Mod-Log Sistemi | ID: ${channel.id}`)
+				hgK.send({embed});
+			}
+		
+	})
+
+.on('roleDelete', async role => {
+  const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
+  
+  const hgK = role.guild.channels.get(gc[role.guild.id].gkanal)
+    if (!hgK) return;
+  let embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setAuthor(`Rol Silindi!`)
+        .setThumbnail(role.guild.iconURL)
+        .setDescription(`'${role.name}' adlı rol silindi.`, true)
+  .setFooter(`FrezzyBot Mod-Log Sistemi | ID: ${role.id}`)
+    hgK.send({embed})
+})
+
+.on('emojiCreate', async emoji => {
+  const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
+  
+  const hgK = emoji.guild.channels.get(gc[emoji.guild.id].gkanal)
+    if (!hgK) return;
+  let embedds9 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setAuthor(`Emoji Oluşturuldu!`)
+        .setThumbnail(emoji.guild.iconURL)
+        .setDescription(`<:${emoji.name}:${emoji.id}> - ${emoji.name} adlı emoji oluşturuldu!`, true)
+  .setFooter(`FrezzyBot Mod-Log Sistemi | ID: ${emoji.id}`)
+    hgK.send({embedds9})
+})
+
+.on('emojiDelete', async emoji => {
+  const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
+  
+  const hgK = emoji.guild.channels.get(gc[emoji.guild.id].gkanal)
+    if (!hgK) return;
+  let embedds0 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setAuthor(`Emoji Silindi!`)
+        .setThumbnail(emoji.guild.iconURL)
+        .setDescription(`':${emoji.name}:' adlı emoji silindi!`, true)
+  	.setFooter(`FrezzyBot Mod-Log Sistemi | ID: ${emoji.id}`)
+   hgK.send(embedds0)
+})
+
+.on('roleCreate', async role => {
+  const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
+  
+  const hgK = role.guild.channels.get(gc[role.guild.id].gkanal)
+    if (!hgK) return;
+  let embedds0 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setAuthor(`Rol Oluşturuldu!`)
+        .setThumbnail(role.guild.iconURL)
+        .setDescription(`'${role.name}' adlı rol oluşturuldu.`, true)
+  .setFooter(`FrezzyBot Mod-Log Sistemi | ID: ${role.id}`)
+   hgK.send(embedds0)
+})
+
+.on('messageUpdate', async (oldMessage, newMessage) => {
+   const fs = require('fs');
+let gc = JSON.parse(fs.readFileSync("./sunucuyaözelayarlar/log.json", "utf8"));
+   const hgK = oldMessage.guild.channels.get(gc[oldMessage.guild.id].gkanal)
+    if (!hgK) return;
+      if (oldMessage.author.bot) {
+        return false;
+    }
+
+    if (!oldMessage.guild) {
+        return false;
+    }
+
+    if (oldMessage.content == newMessage.content) {
+        return false;
+    }
+
+    if (!oldMessage || !oldMessage.id || !oldMessage.content || !oldMessage.guild) return;
+  let embedds4 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setAuthor(`Mesaj Güncellendi!`)
+        .setThumbnail(oldMessage.author.avatarURL)
+        .addField("Gönderen", oldMessage.author.tag, true)
+        .addField("Önceki Mesaj", oldMessage.content, true)
+        .addField("Şimdiki Mesaj", newMessage.content, true)
+        .addField("Kanal", newMessage.channel.name, true)
+  	.setFooter(`FrezzyBot Mod-Log Sistemi | ID: ${oldMessage.id}`)
+    hgK.send(embedds4)
+})
 //////////////////
 client.elevation = message => {
   if(!message.guild) {
