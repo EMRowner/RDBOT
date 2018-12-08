@@ -8,7 +8,7 @@ exports.run = (client, message, params) => {
   const embedeğlence2 = new Discord.RichEmbed()
   .setThumbnail("https://cdn.discordapp.com/attachments/519497714799476749/519867342063271979/download.png")
   .setColor("#FFB900")
-  .addField("ƝЄƠƝ  ƖMƤƛƦƛƬƠƦԼƲğƲ BOT • Ayarlama Komutları", `▫️ **|  r!sayaç:** Sayaç ayarlarsınız.`)
+  .addField("ƝЄƠƝ  ƖMƤƛƦƛƬƠƦԼƲğƲ BOT • Ayarlama Komutları", `▫️ **|  r!sayaç:** Sayaç ayarlarsınız. \n▫️ **| r!mod-log-ayarla** Log ayarlarsınız. \n▫️ **| r!otorol** Otorolayarlarsınız.`)
   .setFooter(`${message.author.username} tarafından istendi.`, message.author.avatarURL)
 
   if (!params[0]) {
