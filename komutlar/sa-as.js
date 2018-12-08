@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 
-var prefix = "r!"
+var pref = "r!"
 
 exports.run = async (bot, message, args) => {
   if (!args[0]) return message.channel.send(`${process.env.basarisiz} Aç yada kapat yazmalısın!! Örnek: ${pref}sa-as aç`)
