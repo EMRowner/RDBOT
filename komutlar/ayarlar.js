@@ -32,7 +32,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'ayarlar',
+  name: 'ayarlar-komutları',
   description: 'Ayarlar',
   usage: 'ayarlar'
 };
